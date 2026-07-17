@@ -112,12 +112,12 @@ function waitServer(port, serverProcess, timeoutMs = 45000) {
   });
 }
 
-// 5. Run Newman tests using PM7_1.json
+// 5. Run Newman tests using PM.json
 function runNewman() {
   return new Promise((resolve, reject) => {
-    console.log('Running Newman tests on PM7_1.json...');
+    console.log('Running Newman tests on PM.json...');
     const reportPath = path.join(__dirname, 'newman-report.json');
-    const PMcollectionPath = path.join(__dirname, '__tests__', 'PM7_1.json');
+    const PMcollectionPath = path.join(__dirname, '__tests__', 'PM.json');
     const cmd = `npx newman run ${PMcollectionPath} -r json --reporter-json-export "${reportPath}"`;
 
     exec(cmd, (error, stdout, stderr) => {
